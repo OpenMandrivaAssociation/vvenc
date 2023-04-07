@@ -37,6 +37,8 @@ This package contains the development files.
 %autosetup -p1
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake \
   -DVVENC_ENABLE_THIRDPARTY_JSON=OFF \
   -DCMAKE_SKIP_RPATH=YES
