@@ -1,15 +1,14 @@
 %define lname libvvenc
 %define __builddir build/release-shared
 Name:           vvenc
-Version:        1.7.0
-Release:        0
+Version:        1.8.0
+Release:        1
 Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
-Source:         https://github.com/fraunhoferhhi/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-Patch0:         gcc11-numeric_limits.patch
-BuildRequires:  c++_compiler
-BuildRequires:  cmake >= 3.13
+Source:         https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
+
+BuildRequires:  cmake
 
 %description
 A fast and efficient H.266/VVC encoder implementation.
@@ -40,15 +39,11 @@ This package contains the development files.
 %build
 %cmake \
   -DVVENC_ENABLE_THIRDPARTY_JSON=OFF \
-  -DCMAKE_SKIP_RPATH=YES \
-%{?nil}
-%cmake_build
+  -DCMAKE_SKIP_RPATH=YES
+%make_build
 
 %install
-%cmake_install
-
-%post -n %{lname} -p /sbin/ldconfig
-%postun -n %{lname} -p /sbin/ldconfig
+%make_install -C build
 
 %files
 %license LICENSE.txt
