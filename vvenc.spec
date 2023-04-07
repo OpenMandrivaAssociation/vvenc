@@ -1,3 +1,5 @@
+%global optflags %{optflags} -Wno-class-memaccess
+
 %define lname libvvenc
 %define __builddir build/release-shared
 Name:           vvenc
@@ -37,8 +39,6 @@ This package contains the development files.
 %autosetup -p1
 
 %build
-export CC=gcc
-export CXX=g++
 %cmake \
   -DVVENC_ENABLE_THIRDPARTY_JSON=OFF \
   -DCMAKE_SKIP_RPATH=YES
