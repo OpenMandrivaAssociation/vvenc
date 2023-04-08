@@ -6,13 +6,6 @@ diff -uraN vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h omv-vvenc-1.8.0/source/L
                                                   _Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"");
  # define GCC_WARNING_DISABLE_class_memaccess     _Pragma("GCC diagnostic push"); \
 -                                                 _Pragma("GCC diagnostic ignored \"-Wclass-memaccess\"");
-+#if defined(__GNUC__) && !defined(__clang__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8))
-+#define GCC_WARNING_DISABLE_class_memaccess \
-+  _Pragma("GCC diagnostic ignored \"-Wclass-memaccess\"")
-+#else
-+#define GCC_WARNING_DISABLE_class_memaccess \
-+  _Pragma("GCC diagnostic ignored \"-Wunknown-warning-option\"")
-+#endif
  # define GCC_WARNING_DISABLE_array_bounds        _Pragma("GCC diagnostic push"); \
                                                   _Pragma("GCC diagnostic ignored \"-Warray-bounds\"");
  # define GCC_WARNING_RESET                       _Pragma("GCC diagnostic pop");
