@@ -1,4 +1,4 @@
-%global optflags %{optflags} -Wno-class-memaccess
+%global optflags %{optflags} -Wno-class-varargs
 
 %define lname libvvenc
 %define __builddir build/release-shared
