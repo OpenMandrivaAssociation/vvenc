@@ -1,4 +1,4 @@
-%global optflags %{optflags} -Wno-class-varargs
+#global optflags %{optflags} -Wno-class-varargs
 
 %define lname libvvenc
 %define __builddir build/release-shared
@@ -9,6 +9,8 @@ Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
 Source:         https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
+
+Patch0:         workaround.patch
 
 BuildRequires:  cmake
 
