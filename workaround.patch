@@ -1,10 +1,11 @@
 diff -uraN vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h omv-vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h
 --- vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h	2023-04-06 11:33:54.000000000 +0200
-+++ omv-vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h	2023-04-08 17:46:32.526238043 +0200
-@@ -97,7 +97,13 @@
++++ omv-vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h	2023-04-09 16:20:04.195827139 +0200
+@@ -96,8 +96,6 @@
+ #if __GNUC__ >= 8
  # define GCC_WARNING_DISABLE_maybe_uninitialized _Pragma("GCC diagnostic push"); \
                                                   _Pragma("GCC diagnostic ignored \"-Wmaybe-uninitialized\"");
- # define GCC_WARNING_DISABLE_class_memaccess     _Pragma("GCC diagnostic push"); \
+-# define GCC_WARNING_DISABLE_class_memaccess     _Pragma("GCC diagnostic push"); \
 -                                                 _Pragma("GCC diagnostic ignored \"-Wclass-memaccess\"");
  # define GCC_WARNING_DISABLE_array_bounds        _Pragma("GCC diagnostic push"); \
                                                   _Pragma("GCC diagnostic ignored \"-Warray-bounds\"");
