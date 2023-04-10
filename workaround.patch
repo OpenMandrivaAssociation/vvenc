@@ -10,3 +10,33 @@ diff -uraN vvenc-1.8.0/source/Lib/CommonLib/CommonDef.h omv-vvenc-1.8.0/source/L
  # define GCC_WARNING_DISABLE_array_bounds        _Pragma("GCC diagnostic push"); \
                                                   _Pragma("GCC diagnostic ignored \"-Warray-bounds\"");
  # define GCC_WARNING_RESET                       _Pragma("GCC diagnostic pop");
+diff -uraN vvenc-1.8.0/source/Lib/CommonLib/Buffer.h omv-vvenc-1.8.0/source/Lib/CommonLib/Buffer.h
+--- vvenc-1.8.0/source/Lib/CommonLib/Buffer.h	2023-04-06 11:33:54.000000000 +0200
++++ omv-vvenc-1.8.0/source/Lib/CommonLib/Buffer.h	2023-04-10 16:45:42.961014900 +0200
+@@ -337,26 +337,6 @@
+   }
+ }
+ 
+-template<typename T>
+-void AreaBuf<T>::memset( const int val )
+-{
+-  GCC_WARNING_DISABLE_class_memaccess
+-  if( width == stride )
+-  {
+-    ::memset( buf, val, width * height * sizeof( T ) );
+-  }
+-  else
+-  {
+-    T* dest = buf;
+-    size_t line = width * sizeof( T );
+-
+-    for( int y = 0; y < height; y++, dest += stride )
+-    {
+-      ::memset( dest, val, line );
+-    }
+-  }
+-  GCC_WARNING_RESET
+-}
+ 
+ template<typename T>
+ void AreaBuf<T>::copyFrom( const AreaBuf<const T>& other )
