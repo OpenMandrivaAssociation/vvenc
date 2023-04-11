@@ -44,8 +44,8 @@ This package contains the development files.
 %cmake \
   -DVVENC_ENABLE_THIRDPARTY_JSON=OFF \
   -DCMAKE_SKIP_RPATH=YES \
-  -DVVENC_INSTALL_FULLFEATURE_APP=ON \
-  -DVVENC_ENABLE_X86_SIMD=False
+  -DVVENC_INSTALL_FULLFEATURE_APP=ON
+
 %make_build
 
 %install
