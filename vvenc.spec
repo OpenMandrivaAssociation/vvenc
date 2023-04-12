@@ -12,6 +12,9 @@ Source:         https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{nam
 Patch0:         https://patch-diff.githubusercontent.com/raw/fraunhoferhhi/vvenc/pull/265.patch
 
 BuildRequires:  cmake
+
+Requires:       %{libname} = %{version}
+
 Provides:       h266
 Provides:       vvc
 
@@ -31,7 +34,7 @@ encoding capabilities.
 %package -n %{devname}
 Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 Group:          Development/Libraries/C and C++
-Requires:       %{lname} = %{version}
+Requires:       %{libname} = %{version}
 
 %description -n %{devname}
 A fast and efficient H.266/VVC encoder implementation.
