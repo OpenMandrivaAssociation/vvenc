@@ -66,5 +66,5 @@ This package contains the development files.
 
 %files -n %{devname}
 %{_includedir}/%{name}/
-%{_libdir}/pkgconfig/%{lname}.pc
+%{_libdir}/pkgconfig/libvvenc.pc
 %{_libdir}/cmake/%{name}/
