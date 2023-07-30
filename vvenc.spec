@@ -9,8 +9,6 @@ License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
 Source:         https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
 
-Patch0:         https://patch-diff.githubusercontent.com/raw/fraunhoferhhi/vvenc/pull/265.patch
-
 BuildRequires:  cmake
 
 Requires:       %{libname} = %{version}
