@@ -60,7 +60,7 @@ This package contains the development files.
 %{_bindir}/vvencapp
 
 %files -n %{libname}
-%{_libdir}/*.so
+%{_libdir}/*.so*
 
 %files -n %{devname}
 %{_includedir}/%{name}/
