@@ -2,14 +2,12 @@
 %define devname %mklibname -d vvenc
 
 Name:           vvenc
-Version:        1.8.0
+Version:        1.9.0
 Release:        1
 Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
 Source:         https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
-
-Patch0:         https://patch-diff.githubusercontent.com/raw/fraunhoferhhi/vvenc/pull/265.patch
 
 BuildRequires:  cmake
 
@@ -62,7 +60,7 @@ This package contains the development files.
 %{_bindir}/vvencapp
 
 %files -n %{libname}
-%{_libdir}/*.so
+%{_libdir}/*.so*
 
 %files -n %{devname}
 %{_includedir}/%{name}/
