@@ -2,7 +2,7 @@
 %define devname %mklibname -d vvenc
 
 Name:           vvenc
-Version:        1.9.1
+Version:        1.10.0
 Release:        1
 Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
