@@ -1,4 +1,4 @@
-%global optflags %{optflags} -Wno-error
+%global optflags %{optflags} -Wno-error -Wno-vla-extension
 
 %define libname %mklibname vvenc
 %define devname %mklibname -d vvenc
