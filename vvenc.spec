@@ -1,3 +1,5 @@
+%global optflags %{optflags} -Wno-error
+
 %define libname %mklibname vvenc
 %define devname %mklibname -d vvenc
 
