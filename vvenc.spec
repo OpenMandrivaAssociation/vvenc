@@ -1,5 +1,3 @@
-%global optflags %{optflags} -Wno-error -Wno-vla-extension
-
 %define libname %mklibname vvenc
 %define devname %mklibname -d vvenc
 
@@ -9,14 +7,16 @@ Release:        1
 Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
-Source:         https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
+# fix build witch clang 18
+Patch00:        https://patch-diff.githubusercontent.com/raw/fraunhoferhhi/vvenc/pull/374.patch
 
 BuildRequires:  cmake
 
 Requires:       %{libname} = %{version}
 
-Provides:       h266
-Provides:       vvc
+#Provides:       h266
+#Provides:       vvc
 
 %description
 A fast and efficient H.266/VVC encoder implementation.
