@@ -1,0 +1,51 @@
+From 3d3ba982276867b38f8fbd17cd1bb367228ad98e Mon Sep 17 00:00:00 2001
+From: Adam Wieckowski <adam.wieckowski@hhi.fraunhofer.de>
+Date: Sat, 20 Apr 2024 16:53:07 +0200
+Subject: [PATCH 1/2] Possibly fix #373
+
+---
+ source/Lib/EncoderLib/InterSearch.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/source/Lib/EncoderLib/InterSearch.h b/source/Lib/EncoderLib/InterSearch.h
+index 741fa928..907cba30 100644
+--- a/source/Lib/EncoderLib/InterSearch.h
++++ b/source/Lib/EncoderLib/InterSearch.h
+@@ -193,10 +193,10 @@ struct BlkUniMvInfoBuffer
+     m_uniMvListSize = 0;
+   }
+ 
+-  static const int m_uniMvListMaxSize = 15;
+-  BlkUniMvInfo     m_uniMvList[m_uniMvListMaxSize];
+-  int              m_uniMvListIdx;
+-  int              m_uniMvListSize;
++  static constexpr int m_uniMvListMaxSize = 15;
++  BlkUniMvInfo         m_uniMvList[m_uniMvListMaxSize];
++  int                  m_uniMvListIdx;
++  int                  m_uniMvListSize;
+ };
+ 
+ class EncPicture;
+
+From 61d66ea175e1edde6f05dec30489e6ec8e9d4f9f Mon Sep 17 00:00:00 2001
+From: Adam Wieckowski <adam.wieckowski@hhi.fraunhofer.de>
+Date: Tue, 23 Apr 2024 10:04:50 +0200
+Subject: [PATCH 2/2] Adapt fix
+
+---
+ source/Lib/EncoderLib/InterSearch.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/source/Lib/EncoderLib/InterSearch.cpp b/source/Lib/EncoderLib/InterSearch.cpp
+index 9233faef..f0fa914b 100644
+--- a/source/Lib/EncoderLib/InterSearch.cpp
++++ b/source/Lib/EncoderLib/InterSearch.cpp
+@@ -2061,7 +2061,7 @@ void InterSearch::xMotionEstimation(CodingUnit& cu, CPelUnitBuf& origBuf, RefPic
+     Distortion uiBestSad = m_cDistParam.distFunc(m_cDistParam);
+     uiBestSad += m_pcRdCost->getCostOfVectorWithPredictor(cTmpMv.hor, cTmpMv.ver, cStruct.imvShift);
+ 
+-    Mv prevMv[m_BlkUniMvInfoBuffer->m_uniMvListMaxSize];
++    Mv prevMv[BlkUniMvInfoBuffer::m_uniMvListMaxSize];
+ 
+     for( int i = 0; i < m_BlkUniMvInfoBuffer->m_uniMvListSize; i++ )
+     {
