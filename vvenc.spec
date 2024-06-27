@@ -8,8 +8,6 @@ Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
 Source0:        https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
-# fix build witch clang 18
-Patch00:        https://patch-diff.githubusercontent.com/raw/fraunhoferhhi/vvenc/pull/374.patch
 
 BuildRequires:  cmake
 
