@@ -2,12 +2,12 @@
 %define devname %mklibname -d vvenc
 
 Name:           vvenc
-Version:        1.12.1~rc1
+Version:        1.12.1
 Release:        1
 Summary:        Fraunhofer Versatile Video Encoder (VVenC)
 License:        BSD-3-Clause-Clear
 URL:            https://www.hhi.fraunhofer.de/en/departments/vca/technologies-and-solutions/h266-vvc.html
-Source0:        https://github.com/fraunhoferhhi/vvenc/archive/v1.12.1-rc1/%{name}-1.12.1-rc1.tar.gz
+Source0:        https://github.com/fraunhoferhhi/vvenc/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  cmake
 
@@ -37,7 +37,7 @@ A fast and efficient H.266/VVC encoder implementation.
 This package contains the development files.
 
 %prep
-%autosetup -n %{name}-1.12.1-rc1 -p1
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %cmake \
